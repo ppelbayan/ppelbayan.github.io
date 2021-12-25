@@ -34,6 +34,7 @@
                     <img class="m-2" src="logo.png" alt="Logo" width="100px">
                     <h1>Formulir Pendaftaran</h1>
                     <h2>Pondok Pesantren El-Bayan</h2>
+                    <h2>Tahun Ajaran 1443/2022</h2>
                   </div>
               </div>
               
@@ -43,18 +44,18 @@
             <h4>Biodata Santri</h4>
             <form class="row g-2 needs-validation" name="psbOnline" novalidate>
                 <div class="col-12">
-                    <label for="inputNama" class="form-label">Nama</label>
+                    <label for="inputNama" class="form-label">Nama Lengkap</label>
                     <input name="Nama" type="text" class="form-control" id="inputNama" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputNomorNik" class="form-label">Nomor Induk Kependudukan (NIK)</label>
+                    <label for="inputNomorNik" class="form-label" minlength="16" maxlength="17">Nomor Induk Kependudukan (NIK)</label>
                     <input name="NIK" type="text" class="form-control" id="inputNomorNik" required>
                     <small><i> Ada pada KK</i></small>
                 </div>
                 <div class="col-md-6">
                     <label for="inputNomorNisn" class="form-label">Nomor Induk Siswa Nasional (NISN)</label>
-                    <input name="NISN" type="text" class="form-control" id="inputNomorNisn" placeholder="'001076XXXX">
-                    <small><i> Ada pada Ijazah & Harap diawali tanda petik satu</i></small>
+                    <input name="NISN" type="text" class="form-control" id="inputNomorNisn" placeholder="E001076XXXX">
+                    <small><i> Ada pada Ijazah & Harap diawali huruf E</i></small>
                 </div>
                 <div class="col-md-8">
                     <label for="inputTempatLahir" class="form-label">Tempat Lahir</label>
@@ -83,12 +84,15 @@
                 <div class="col-md-3">
                     <label for="inputHobi" class="form-label">Hobi</label>
                     <select name="Hobi" id="inputHobi" class="form-select">
-                      <option>Olahraga</option>
-                      <option>Kesenian</option>
-                      <option selected>Membaca</option>
-                      <option>Menulis</option>
-                      <option>Jalan-jalan</option>
-                      <option>Lainnya</option>
+                        <option>Hadroh</option>
+                        <optionselected>Qiro'ah</option>
+                        <option>Kaligrafi</option>
+                        <option>Membaca</option>
+                        <option>Menulis</option>
+                        <option>Olahraga</option>
+                        <option>Kesenian</option>
+                        <option>Jalan-jalan</option>
+                        <option>Lainnya</option>
                     </select>
                 </div>
                 <div class="col-md-3">
@@ -103,6 +107,7 @@
                       <option>Politikus</option>
                       <option>Wiraswasta</option>
                       <option>Seniman/Artis</option>
+                      <option>Lainnya</option>
                     </select>
                 </div>
                 
@@ -132,6 +137,7 @@
                                 <option>SMP Sederajat</option>
                                 <option>SMA Sederajat</option>
                                 <option>Perguruan Tinggi</option>
+                                <option>Tidak sekolah/tidak lulus</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -176,6 +182,7 @@
                                     <option>SMP Sederajat</option>
                                     <option>SMA Sederajat</option>
                                     <option>Perguruan Tinggi</option>
+                                    <option>Tidak sekolah/tidak lulus</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
@@ -220,7 +227,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputNomorTelepon" class="form-label">Nomor Telepon/WhatsApp</label>
-                        <input name="Nomor Telepon" type="tel" class="form-control" id="inputNomorTelepon"  required>
+                        <input name="Nomor Telepon" type="tel" class="form-control" id="inputNomorTelepon" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" required>
                     </div>
                 </div>
 
@@ -238,11 +245,11 @@
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="inputRt" class="form-label">RT</label>
-                            <input name="RT" type="text" class="form-control" id="inputRt"  required>
+                            <input name="RT" type="tel" class="form-control" id="inputRt"  required>
                         </div>
                         <div class="col-sm-6">
                             <label for="inputRw" class="form-label">RW</label>
-                            <input name="RW" type="text" class="form-control" id="inputRw"  required>
+                            <input name="RW" type="tel" class="form-control" id="inputRw"  required>
                         </div>
 
                     </div>
@@ -297,6 +304,56 @@
                     </select>
                 </div>
 
+                <hr class="my-4">
+                <h4>Data Sekolah Formal</h4>
+                <div class="col-md-12">
+                    <label for="inputPernyataanSekolah" class="form-label">Bagaimana Pendaftaran sekolah formal anda?</label>
+                    <select name="Pernyataan Sekolah" id="inputPernyataanSekolah" class="form-select" required>
+                        <option>Minta Bantuan Panitia PSB (Pengurus Pondok)</option>
+                        <option>Daftar Mandiri ke sekolah</option>
+                        <option>Saya murid pindahan, bukan siswa baru</option>
+                        <option>Hanya mesantren dan Madrasah Diniyah</option>
+                    </select>                  
+                </div>
+                <div class="col-md-4">
+                    <label for="inputSekolah" class="form-label">Di mana anda akan melanjutkan sekolah?</label>                  
+                    <select name="Sekolah" id="inputSekolah" class="form-select" required>
+                        <option>MTS El-Bayan Majenang</option>
+                        <option>MA El-Bayan Majenang</option>
+                        <option>STMIK Komputama Majenang</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputJurusan" class="form-label">Jurusan Utama</label>                
+                    <select name="Jurusan" id="inputJurusan" class="form-select" required>
+                        <option>Agama</option>
+                        <option>IPA (Ilmu Pengetahuan Alam)</option>
+                        <option>IPS (Ilmu Pengetahuan Sosial)</option>
+                        <option>Bahasa Jepang</option>
+                    </select>
+                    <small><i> Silakan pilih jurusan yang akan anda ambil di MA El-Bayan</i></small>  
+                </div>
+                <div class="col-md-4">
+                    <label for="inputJurusan" class="form-label">Jurusan Cadangan</label>                  
+                    <select name="Jurusan" id="inputJurusan" class="form-select" required>
+                        <option>Agama</option>
+                        <option>IPA (Ilmu Pengetahuan Alam)</option>
+                        <option>IPS (Ilmu Pengetahuan Sosial)</option>
+                        <option>Bahasa Jepang</option>
+                    </select>
+                    <small><i>Sebagai ganti ketika anda tidak masuk pada Jurusan Utama yang anda pilih sebelumnya</i> </small>
+                </div>
+                <div class="col-md-8">
+                    <label for="inputNamaSekolahAsal" class="form-label">Nama Sekolah Asal</label>
+                    <input name="Sekolah Asal" type="text" class="form-control" id="inputNamaSekolahAsal" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputKip" class="form-label">Nomor KIP (Kartu Indonesia Pintar)</label>
+                    <input name="Nomor KIP" type="text" class="form-control" id="inputKip" placeholder="TO58CM" required>
+                    <small><i>Silakan diisi jika anda memiliki</i> </small>                  
+                </div>
+
+
                 <!-- Membuat Allert / Muncul semacam peringatan -->
                 <div class="alert alert-danger d-flex align-items-center d-none alert-gagal" role="alert">
                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
@@ -307,11 +364,11 @@
                 <div class="alert alert-success d-flex align-items-center d-none alert-sukses" role="alert">
                     <div>
                         <h6>Data sudah kami terima! Siapkan jiwa raga dan sampai jumpa di pondok ya...!</h6>
-                        <h6>Untuk berkas pendaftaran bisa dikirim <a href="https://wa.link/duw9a3" class="alert-link">DI SINI</a> atau dibawa saat datang ke pondok</h6>
+                        <h6>Untuk berkas pendaftaran bisa dikirim melalui WhatsApp dengan cara klik <a href="https://wa.link/duw9a3" class="alert-link">DI SINI</a> atau dibawa saat datang ke pondok</h6>
                     </div>
                   </div>
                   
-                <div class="col-12">
+                <div class="col-12 mt-3 text-center">
                   <button type="submit" class="btn btn-outline-primary btn-kirim"><strong>DAFTAR</strong></button>
                   <button type="submit" class="btn btn-outline-primary btn-kirim-lagi d-none"><strong>DAFTAR LAGI</strong></button>
                   <button class="btn btn-primary btn-loading d-none" type="button" disabled>
@@ -322,7 +379,7 @@
               </form>
             </div>
             <div class="bawah mt-3 text-center">
-                <small>Copyright 2021 | Santri Pondok Pesantren El-Bayan</small>
+                <small>Copyright 2021 | Pondok Pesantren El-Bayan</small>
             </div>
         </div>
         

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    
     <link rel="shortcut icon" href="favicon.ico">
     <title>PP El-Bayan | Formulir Pendaftaran</title>
     <style>
@@ -42,14 +42,14 @@
           <hr class="my-4">
           <div class="formulir">
             <h4>Biodata Santri</h4>
-            <form class="row g-2 needs-validation" name="psbOnline" novalidate>
+            <form class="row g-2 needs-validation" name="psbOnline" id="psbOnline" onsubmit="return validateForm()" >
                 <div class="col-12">
                     <label for="inputNama" class="form-label">Nama Lengkap</label>
                     <input name="Nama" type="text" class="form-control" id="inputNama" required>
                 </div>
                 <div class="col-md-6">
                     <label for="inputNomorNik" class="form-label" minlength="16" maxlength="17">Nomor Induk Kependudukan (NIK)</label>
-                    <input name="NIK" type="tel" class="form-control" id="inputNomorNik" required>
+                    <input name="NIK" type="text" class="form-control" id="inputNomorNik" pattern="[0-9]{16}" required>
                     <small><i> Ada pada KK</i></small>
                 </div>
                 <div class="col-md-6">
@@ -116,7 +116,7 @@
                 <div class="row justify-content-around">
                     <div class="col-md-12">
                         <label for="inputNomorKK" class="form-label">Nomor KK</label>
-                        <input name="Nomor KK" type="tel" class="form-control" id="inputNomorKK" required>
+                        <input name="Nomor KK" type="text" class="form-control" id="inputNomorKK" required>
                         <small><i> Terdapat pada KK bagian atas </i></small>
                     </div>
                 <div class="col-lg-5 my-2">
@@ -128,7 +128,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="inputNomorNikAyah" class="form-label">NIK</label>
-                            <input name="NIK Ayah" type="tel" class="form-control" id="inputNomorNikAyah" required>
+                            <input name="NIK Ayah" type="text" class="form-control" id="inputNomorNikAyah" required>
                         </div>
                         <div class="col-md-4">
                             <label for="inputIjazahTerakhirAyah" class="form-label">Ijazah Terakhir</label>
@@ -173,7 +173,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="inputNomorNikIbu" class="form-label">NIK</label>
-                                <input name="NIK Ibu" type="tel" class="form-control" id="inputNomorNikIbu" required>
+                                <input name="NIK Ibu" type="text" class="form-control" id="inputNomorNikIbu" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="inputIjazahTerakhirIbu" class="form-label">Ijazah Terakhir</label>
@@ -227,7 +227,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputNomorTelepon" class="form-label">Nomor Telepon/WhatsApp</label>
-                        <input name="Nomor Telepon" type="tel" class="form-control" id="inputNomorTelepon" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" required>
+                        <input name="Nomor Telepon" type="tel" class="form-control" id="inputNomorTelepon"  required>
                     </div>
                 </div>
 
@@ -317,7 +317,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputSekolah" class="form-label">Di mana anda akan melanjutkan sekolah?</label>                  
-                    <select name="Sekolah" id="inputSekolah" class="form-select" required>
+                    <select name="Sekolah" id="inputSekolah" class="form-select">
                         <option></option>
                         <option>MTS El-Bayan Majenang</option>
                         <option>MA El-Bayan Majenang</option>
@@ -326,7 +326,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputJurusan" class="form-label">Jurusan Utama</label>                
-                    <select name="Jurusan" id="inputJurusan" class="form-select" required>
+                    <select name="Jurusan" id="inputJurusan" class="form-select">
                         <option></option>
                         <option>Agama</option>
                         <option>IPA (Ilmu Pengetahuan Alam)</option>
@@ -337,7 +337,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputJurusan" class="form-label">Jurusan Cadangan</label>                  
-                    <select name="Jurusan" id="inputJurusan" class="form-select" required>
+                    <select name="Jurusan" id="inputJurusan" class="form-select">
                         <option></option>
                         <option>Agama</option>
                         <option>IPA (Ilmu Pengetahuan Alam)</option>
@@ -348,11 +348,11 @@
                 </div>
                 <div class="col-md-8">
                     <label for="inputNamaSekolahAsal" class="form-label">Nama Sekolah Asal</label>
-                    <input name="Sekolah Asal" type="text" class="form-control" id="inputNamaSekolahAsal" required>
+                    <input name="Sekolah Asal" type="text" class="form-control" id="inputNamaSekolahAsal">
                 </div>
                 <div class="col-md-4">
                     <label for="inputKip" class="form-label">Nomor KIP (Kartu Indonesia Pintar)</label>
-                    <input name="Nomor KIP" type="text" class="form-control" id="inputKip" placeholder="TO58CM" required>
+                    <input name="Nomor KIP" type="text" class="form-control" id="inputKip" placeholder="TO58CM">
                     <small><i>Silakan diisi jika anda memiliki</i> </small>                  
                 </div>
 
@@ -443,7 +443,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    
+    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
    

@@ -23,6 +23,10 @@
         }
         body {
             font-family: 'Sen', sans-serif;
+        }
+        .garis{
+            margin-top: -15px;
+
         };
     </style>
   </head>
@@ -31,39 +35,40 @@
           <div class="judul mt-3 d-flex justify-content-center">
               <div class="row">
                   <div class="text-center">
-                    <img class="m-2" src="logo.png" alt="Logo" width="100px">
-                    <h1>Formulir Pendaftaran</h1>
-                    <h2>Pondok Pesantren El-Bayan</h2>
-                    <h2>Tahun Ajaran 1443/2022</h2>
+                    <img class="m-2" src="logo.png" alt="Logo" width="80px">
+                    <h3>Formulir Pendaftaran</h3>
+                    <h4>Pondok Pesantren El-Bayan</h4>
+                    <h4>Tahun Ajaran 1443/2022</h4>
                   </div>
               </div>
               
           </div>
-          <hr class="my-4">
+          <p id="tanggalwaktu"></p>
+          <hr class="mb-4 garis">
           <div class="formulir">
             <h4>Biodata Santri</h4>
             <form class="row g-2 needs-validation" name="psbOnline" id="psbOnline" onsubmit="return validateForm()" >
                 <div class="col-12">
                     <label for="inputNama" class="form-label">Nama Lengkap</label>
-                    <input name="Nama" type="text" class="form-control" id="inputNama" required>
+                    <input name="Nama" type="text" class="form-control" id="inputNama" pattern="[A-Za-z']{3,}" title="Mohon masukkan dengan tepat" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputNomorNik" class="form-label" minlength="16" maxlength="17">Nomor Induk Kependudukan (NIK)</label>
-                    <input name="NIK" type="text" class="form-control" id="inputNomorNik" pattern="[0-9]{16}" required>
+                    <label for="inputNomorNik" class="form-label" >Nomor Induk Kependudukan (NIK)</label>
+                    <input name="NIK" type="tel" class="form-control" id="inputNomorNik" pattern="[0-9]{16}" required title="Mohon masukkan dengan tepat">
                     <small><i> Ada pada KK</i></small>
                 </div>
                 <div class="col-md-6">
                     <label for="inputNomorNisn" class="form-label">Nomor Induk Siswa Nasional (NISN)</label>
-                    <input name="NISN" type="text" class="form-control" id="inputNomorNisn" placeholder="E001076XXXX">
-                    <small><i> Ada pada Ijazah & Harap diawali huruf E</i></small>
+                    <input name="NISN" type="tel" class="form-control" id="inputNomorNisn" pattern="[#,0-9]{11}" placeholder="#001076XXXX">
+                    <small><i> Ada pada Ijazah & Harap diawali tanda pagar (#)</i></small>
                 </div>
                 <div class="col-md-8">
                     <label for="inputTempatLahir" class="form-label">Tempat Lahir</label>
-                    <input name="Tempat" type="text" class="form-control" id="inputTempatLahir" required>
+                    <input name="Tempat" type="text" class="form-control" id="inputTempatLahir" pattern="[A-Za-z]{3,}" required title="Mohon masukkan dengan tepat">
                 </div>
                 <div class="col-md-4">
                   <label for="inputTanggalLahir" class="form-label">Tanggal Lahir</label>
-                  <input name="Tanggal Lahir" type="date" class="form-control" id="inputTanggalLahir" required>
+                  <input name="Tanggal Lahir" type="date" class="form-control" id="inputTanggalLahir" required title="Mohon masukkan dengan tepat">
                 </div>
                 <div class="col-md-3">
                     <label for="inputJenisKelamin" class="form-label">Jenis Kelamin</label>
@@ -116,7 +121,7 @@
                 <div class="row justify-content-around">
                     <div class="col-md-12">
                         <label for="inputNomorKK" class="form-label">Nomor KK</label>
-                        <input name="Nomor KK" type="text" class="form-control" id="inputNomorKK" required>
+                        <input name="Nomor KK" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorKK" required title="Mohon masukkan dengan tepat">
                         <small><i> Terdapat pada KK bagian atas </i></small>
                     </div>
                 <div class="col-lg-5 my-2">
@@ -124,11 +129,11 @@
                     <div class="row g-3">
                         <div class="col-12">
                             <label for="inputNamaAyah" class="form-label">Nama</label>
-                            <input name="Nama Ayah" type="text" class="form-control" id="inputNamaAyah" required>
+                            <input name="Nama Ayah" type="text" class="form-control" id="inputNamaAyah" pattern="[A-Za-z']{3,}" required title="Mohon masukkan dengan tepat">
                         </div>
                         <div class="col-md-4">
                             <label for="inputNomorNikAyah" class="form-label">NIK</label>
-                            <input name="NIK Ayah" type="text" class="form-control" id="inputNomorNikAyah" required>
+                            <input name="NIK Ayah" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorNikAyah" required title="Mohon masukkan dengan tepat">
                         </div>
                         <div class="col-md-4">
                             <label for="inputIjazahTerakhirAyah" class="form-label">Ijazah Terakhir</label>
@@ -169,11 +174,11 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <label for="inputNamaIbu" class="form-label">Nama</label>
-                                <input name="Nama Ibu" type="text" class="form-control" id="inputNamaIbu" required>
+                                <input name="Nama Ibu" type="text" class="form-control" id="inputNamaIbu" pattern="[A-Za-z]{3,}" required title="Mohon masukkan dengan tepat">
                             </div>
                             <div class="col-md-4">
                                 <label for="inputNomorNikIbu" class="form-label">NIK</label>
-                                <input name="NIK Ibu" type="text" class="form-control" id="inputNomorNikIbu" required>
+                                <input name="NIK Ibu" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorNikIbu" required title="Mohon masukkan dengan tepat">
                             </div>
                             <div class="col-md-4">
                                 <label for="inputIjazahTerakhirIbu" class="form-label">Ijazah Terakhir</label>
@@ -227,7 +232,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputNomorTelepon" class="form-label">Nomor Telepon/WhatsApp</label>
-                        <input name="Nomor Telepon" type="tel" class="form-control" id="inputNomorTelepon"  required>
+                        <input name="Nomor Telepon" type="tel" class="form-control" id="inputNomorTelepon" pattern="[0-9]{10,13}" required title="Mohon masukkan dengan tepat">
                     </div>
                 </div>
 
@@ -235,21 +240,21 @@
                 <h4>Data Alamat Rumah</h4>
                 <div class="col-md-4">
                     <label for="inputDusun" class="form-label">Dusun</label>
-                    <input name="Dusun" type="text" class="form-control" id="inputDusun">
+                    <input name="Dusun" type="text" class="form-control" id="inputDusun"pattern="[A-Za-z]{3,}">
                 </div>
                 <div class="col-md-4">
                     <label for="inputDesa" class="form-label">Desa</label>
-                    <input name="Desa" type="text" class="form-control" id="inputDesa" required>
+                    <input name="Desa" type="text" class="form-control" id="inputDesa" pattern="[A-Za-z]{3,}" required title="Mohon masukkan dengan tepat">
                 </div>
                 <div class="col-4">
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="inputRt" class="form-label">RT</label>
-                            <input name="RT" type="tel" class="form-control" id="inputRt"  required>
+                            <input name="RT" type="tel" class="form-control" id="inputRt" required title="Mohon masukkan dengan tepat">
                         </div>
                         <div class="col-sm-6">
                             <label for="inputRw" class="form-label">RW</label>
-                            <input name="RW" type="tel" class="form-control" id="inputRw"  required>
+                            <input name="RW" type="tel" class="form-control" id="inputRw" required title="Mohon masukkan dengan tepat">
                         </div>
 
                     </div>
@@ -258,11 +263,11 @@
                 
                 <div class="col-md-4">
                     <label for="inputKecamatan" class="form-label">Kecamatan</label>
-                    <input name="Kecamatan" type="text" class="form-control" id="inputKecamatan" required>
+                    <input name="Kecamatan" type="text" class="form-control" id="inputKecamatan" pattern="[A-Za-z]{3,}" required title="Mohon masukkan dengan tepat">
                 </div>
                 <div class="col-md-4">
                     <label for="inputKabupaten" class="form-label">Kabupaten</label>
-                    <input name="Kabupaten" type="text" class="form-control" id="inputKabupaten" required>
+                    <input name="Kabupaten" type="text" class="form-control" id="inputKabupaten" pattern="[A-Za-z]{3,}" required title="Mohon masukkan dengan tepat">
                 </div>
                 <div class="col-md-4">
                     <label for="inputProvinsi" class="form-label">Provinsi</label>
@@ -348,13 +353,15 @@
                 </div>
                 <div class="col-md-8">
                     <label for="inputNamaSekolahAsal" class="form-label">Nama Sekolah Asal</label>
-                    <input name="Sekolah Asal" type="text" class="form-control" id="inputNamaSekolahAsal">
+                    <input name="Sekolah Asal" type="text" class="form-control" id="inputNamaSekolahAsal" pattern="[A-Za-z]{3,}">
                 </div>
                 <div class="col-md-4">
                     <label for="inputKip" class="form-label">Nomor KIP (Kartu Indonesia Pintar)</label>
                     <input name="Nomor KIP" type="text" class="form-control" id="inputKip" placeholder="TO58CM">
                     <small><i>Silakan diisi jika anda memiliki</i> </small>                  
                 </div>
+
+                <small class="text-center ">Dengan mengklik <b>Daftar</b>. Anda menyetujui untuk menjadi Santri PP El-Bayan serta menaati Dawuhan Pengasuh dan Qonun Pondok Pesantren</small>
 
 
                 <!-- Membuat Allert / Muncul semacam peringatan -->
@@ -381,39 +388,12 @@
                 </div>
               </form>
             </div>
+            
             <div class="bawah mt-3 text-center">
-                <small>Copyright 2021 | Pondok Pesantren El-Bayan</small>
+                <small>Pondok Pesantren El-Bayan &copy; 2021</small>
             </div>
         </div>
         
-    <!-- <script>
-     // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-        'use strict'
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-        const btnKirim = document.querySelector('.btn-kirim')
-        const alertSukses = document.querySelector('.alert-sukses')
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-                console.log("GAGAL")
-                form.classList.add('was-validated')
-                } else {
-                console.log("Berhasil")
-                return
-                }
-            }, false)
-            })
-        })()
-    </script> -->
-
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzncDoRXEOVCSDi34uQc2D6h1V8XpgibaUJjaEbTJE8wjOQMiUbtutwUgnd5VCaHPDSSA/exec'
         const form = document.forms['psbOnline']
@@ -443,9 +423,11 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-   
+    <script src="script.js"></script>
   </body>
 </html>

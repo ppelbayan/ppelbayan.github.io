@@ -4,7 +4,7 @@ var tanggal = new Date().getDate();
 var bulan = new Date().getMonth()+1;
 var tahun = new Date().getFullYear();
 $.ajax({
-  url: "http://api.aladhan.com/v1/gToH",
+  url: "https://api.aladhan.com/v1/gToH",
   type: "get",
   dataType: "json",
   data: {

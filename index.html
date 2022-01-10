@@ -68,7 +68,7 @@ header .logo
 }
 .showcase.active
 {
-  right: 300px;
+  right: 25%;
 }
 
 .showcase video
@@ -156,7 +156,6 @@ header .logo
 {
   display: inline-block;
   margin-right: 20px;
-  filter: invert(1);
   transform: scale(0.5);
   transition: 0.5s;
 }
@@ -164,29 +163,22 @@ header .logo
 {
   transform: scale(0.5) translateY(-15px);
 }
-.social li small
-{
-    color: #fff;
-}
-.social li small a
-{
-    color: #fff;
-    text-decoration: none;
-}
 .menu
 {
   position: absolute;
   top: 0;
+  align-items: flex-;
   right: 0;
-  width: 300px;
+  width: 24%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 }
 .menu ul
 {
   position: relative;
+  padding-right: 50px;
 }
 .menu ul li
 {
@@ -195,28 +187,38 @@ header .logo
 .menu ul li a
 {
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   color: #111;
 }
 .menu ul li a:hover
 {
-  color: #03a9f4; 
+  color: #00ff95; 
 }
-
 @media (max-width: 991px)
 {
   .showcase,
   .showcase header
   {
-    padding: 40px;
+    padding: 30px;
   }
   .text h2
   {
-    font-size: 3em;
+    font-size: 2em;
   }
   .text h3
   {
-    font-size: 2em;
+    font-size: 1.5em;
+  }
+  .menu ul
+  {
+    position: relative;
+    padding-right: 10px;
+  }
+  .menu ul li a
+  {
+    text-decoration: none;
+    font-size: 16px;
+    color: #111;
   }
 }
 </style>
@@ -224,38 +226,40 @@ header .logo
     <div class="container">
     <section class="showcase">
     <header>
-      <h2 class="logo">PP EL-Bayan</h2>
+      <h2 class="logo">PSB PP EL-Bayan</h2>
       <div class="toggle"></div>
     </header>
-    <video src="video.mp4" muted loop autoplay></video>
+    <video src="src/video.mp4" muted loop autoplay></video>
     <div class="overlay"></div>
-    <div class="text">
-      <h2>PP El-Bayan </h2> 
-      <h3>Menerima Pendaftaran Santri Baru 1443/2022</h3>
-      <p>Mulai tanggal 15 Jumadil Akhir 1443, Pondok Pesantren El-Bayan 
-          membuka pendaftaran santri baru
-      </p>
-      <a href="formulir.html">Daftar</a>
-      <a href="https://raw.githubusercontent.com/ppelbayan/ppelbayan.github.io/main/Brosur%20PP%20El-Bayan%201443_2022.png">Brosur</a>
-      
-    </div>
-    <ul class="social">
-      <li><a href="https://www.facebook.com/ppelbayan"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
-      <li><a href="https://www.twitter/ppelbayan"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
-      <li><a href="https://www.instagram.com/ppelbayan"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
-      <li><small class="text-info">Kode dari <a href="https://codepen.io/bradtraversy/pens/showcase">Codepen</a></small></li>
-    </ul>
-    
+    <div class="content">
+        <div class="text">
+          <h2>PP El-Bayan </h2> 
+          <h3>Menerima Pendaftaran Santri Baru 1443/2022</h3>
+          <p>Mulai tanggal 15 Jumadil Akhir 1443, Pondok Pesantren El-Bayan 
+              membuka pendaftaran santri baru tahun ajaran 1443-1444 H.
+          </p>
+          <a href="https://raw.githubusercontent.com/ppelbayan/ppelbayan.github.io/main/Brosur%20Pondo%20Pesantren%20El-Bayan%201443_2022.png">Brosur</a>
+          <a href="formulir.html" class="text-bold">Alur Daftar</a>
+          <a href="https://wa.link/duw9a3">Kirim Berkas</a>
+          
+        </div>
+        <ul class="social">
+          <li><a href="https://www.youtube.com/c/PondokPesantrenElBayanMajenang"><img src="src/youtube.png"></a></li>        
+          <li><a href="https://www.facebook.com/ppelbayan"><img src="src/facebook.png"></a></li>
+          <li><a href="https://www.instagram.com/ppelbayan"><img src="src/instagram.png"></a></li>
+          <li><a href="https://www.twitter.com/ppelbayan"><img src="src/twitter.png"></a></li>
+        </ul>
+      </div>
   </section>
   <div class="menu">
     <ul>
-      <li><a href="#">Beranda</a></li>
-      <li><a href="#">Info</a></li>
-      <li><a href="#">Sarana</a></li>
-      <li><a href="#">Tulisan</a></li>
-      <li><a href="#">Hubungi Kami</a></li>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="#">Info Administrasi</a></li>
+      <li><a href="https://berbagi.link/ppelbayan">Hubungi Kami</a></li>
+      <br><br><br>
       <hr>
-      <li>Pondok Pesantren El-Bayan &copy; 2021</li>
+      <li>Pondok Pesantren El-Bayan &copy; 2022</li>
+      <li>Kode dari <a href="https://codepen.io/bradtraversy/pens/showcase">Codepen</a></li>
     </ul>
   </div>
     </div>

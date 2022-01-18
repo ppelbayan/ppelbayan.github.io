@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Brosur PP El-Bayan</title>
+    <style>
+        .judul,.alert,h4,h3{
+            font-family: 'Bubblegum Sans', cursive;
+        }
+        h3{
+            text-align: center;
+        }
+        body {
+            font-family: 'Sen', sans-serif;
+        }
+        .garis{
+            margin-top: -15px;
+
+        }
+        .ngisor{
+            margin-bottom: auto;
+        }
+        .overlay {
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0,0,0,0);
+            z-index: 9999;
+            transition: .8s;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .overlay:target {
+            width: auto;
+            height: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0,0,0,.7);
+        }
+
+        .overlay img {
+            max-width: 100%;
+            max-height: 100%;
+            box-shadow: 2px 2px 7px rgba(0,0,0,.5);
+        }
+
+        .overlay:target img {
+            animation: zoomDanFade 0.3s;
+        }
+
+        .overlay .close {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            margin-left: -20px;
+            color: white;
+            text-decoration: none;
+            background-color: black;
+            border: 1px solid white;
+            line-height: 14px;
+            padding: 5px;
+            opacity: 0;
+        }
+
+        .overlay:target .close {
+            animation: slideDownFade .5s .5s forwards;
+        }
+
+        .img-thumbnail{
+            height: 100px;
+        }
+
+
+        /* animasi */
+        @keyframes zoomDanFade {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDownFade {
+            0% {
+                opacity: 0;
+                margin-top: -20px;
+            }
+
+            100% {
+                opacity: 1;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="judul mt-3 d-flex justify-content-center">
+            <div class="row">
+                <div class="text-center">
+                  <img class="m-2" src="src/logo.png" alt="Logo" width="80px">
+                  <h3>Pondok Pesantren El-Bayan</h3>
+                </div>
+            </div>
+            
+        </div>
+        <p id="tanggalwaktu"></p>
+        <hr class="mb-4 garis">
+        <h4>Brosur PP El-Bayan 1443/2022</h4>
+        <h5>Versi Cetak</h5>
+        <div class="row align-items-center">
+            <div class="col">
+                <a href="#brosurdepan">
+                    <img class="img-thumbnail" src="src/brosur/thumb/1.png" alt="">
+                </a>
+                <div class="overlay" id="brosurdepan">
+                    <img src="src/brosur/full/1.png" alt="">
+                </div>
+                <a href="#brosurdepan">
+                    <img class="img-thumbnail" src="src/brosur/thumb/2.png" alt="">
+                </a>
+                <div class="overlay" id="brosurdepan">
+                    <img src="src/brosur/full/2.png" alt="">
+                </div>                    
+            </div>
+        </div> <br>
+        <h5>Versi Digital</h5>
+        <div class="row align-items-center">
+            <div class="col">
+                <a href="#Brosdig1443A">
+                    <img class="img-thumbnail" src="src/brosur/thumb/Brosdig1443A.png" alt="">
+                </a>
+                <div class="overlay" id="Brosdig1443A">
+                    <img src="src/brosur/full/Brosdig1443A.png" alt="">
+                </div>                  
+                <a href="#Brosdig1443B">
+                    <img class="img-thumbnail" src="src/brosur/thumb/Brosdig1443B.png" alt="">
+                </a>
+                <div class="overlay" id="Brosdig1443B">
+                    <img src="src/brosur/full/Brosdig1443B.png" alt="">
+                </div>                  
+                <a href="#Brosdig1443C">
+                    <img class="img-thumbnail" src="src/brosur/thumb/Brosdig1443C.png" alt="">
+                </a>
+                <div class="overlay" id="Brosdig1443C">
+                    <img src="src/brosur/full/Brosdig1443C.png" alt="">
+                </div>                  
+                <a href="#Brosdig1443D">
+                    <img class="img-thumbnail" src="src/brosur/thumb/Brosdig1443D.png" alt="">
+                </a>
+                <div class="overlay" id="Brosdig1443D">
+                    <img src="src/brosur/full/Brosdig1443D.png" alt="">
+                </div>                  
+                <a href="#Brosdig1443E">
+                    <img class="img-thumbnail" src="src/brosur/thumb/Brosdig1443E.png" alt="">
+                </a>
+                <div class="overlay" id="Brosdig1443E">
+                    <img src="src/brosur/full/Brosdig1443E.png" alt="">
+                </div>                  
+            </div>
+
+        </div>
+        <br>
+            <a href="index.html"><button class="btn btn-outline-primary text-center btn-kirim fw-bolder">DAFTAR SEKARANG</button></a>
+        
+
+        <div class="bawah mt-3 text-center">
+            <small>Pondok Pesantren El-Bayan &copy; 2021</small>
+        </div>
+    </div>
+    </body>
+</body>
+</html>

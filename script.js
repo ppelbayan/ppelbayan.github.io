@@ -1,6 +1,6 @@
 // Kami meggunakan API Kalender islam dari "http://api.aladhan.com/v1/gToH"
 
-var tanggal = new Date().getDate();
+var tanggal = new Date().getDate()+2;
 var bulan = new Date().getMonth();
 var tahun = new Date().getFullYear();
 $.ajax({

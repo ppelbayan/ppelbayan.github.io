@@ -60,26 +60,34 @@
                     <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTw6i8fIpTBnk0acpdVjWFsE7BgvsxS9goP6mhtPYpndoTkl892f9TE4Kq-yrEox7lui5wmUin3F8OO/pubhtml?gid=548210436&single=true"><button class="btn btn-outline-primary btn-brosur my-2" type="button" ><strong>Cek Pendaftar</strong></button></a>   -->
                 </div>
               </div>
-          </div>
           <hr class="my-4 garis">
+          <section id="formulir"></section>
           <div class="formulir">
             <h3>Formulir Pendaftaran</h3>
             <p class="text-center">Formulir ini nantinya akan digunakan sebagai pendaftaran Pondok Pesantren sekaligus Madrasah Diniyah</p>
             <h4>Biodata Santri</h4>
-            <form class="row g-2 needs-validation" name="psbOnline" id="psbOnline">
+            <form class="row g-2 needs-validation" name="psbOnline" id="psbOnline" novalidate>
                 <div class="col-12">
                     <label for="inputNama" class="form-label">Nama Lengkap</label><small class="text-danger">* <i>(kolom wajib diisi)</i></small>
                     <input name="Nama" type="text" class="form-control" id="inputNama" pattern="[A-Z a-z']{3,}" title="Mohon masukkan dengan tepat" required>
+                    <div class="invalid-feedback">
+                        Mohon masukkan nama lengkap!
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="inputNomorNik" class="form-label" >Nomor Induk Kependudukan (NIK)</label><small class="text-danger">*</small>
                     <input name="NIK" type="tel" class="form-control" id="inputNomorNik" pattern="[0-9]{16}" required title="Mohon masukkan dengan tepat">
-                    <small><i> Ada pada KK</i></small>
+                    <div class="invalid-feedback">
+                        NIK dapat dilihat pada Kartu Keluarga atau KTP, berjumlah 16 angka
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="inputNomorNisn" class="form-label">Nomor Induk Siswa Nasional (NISN)</label>
-                    <input name="NISN" type="tel" class="form-control" id="inputNomorNisn" pattern="[#,0-9]{11}" placeholder="#001076XXXX">
-                    <small><i> Ada pada Ijazah & Harap diawali tanda pagar (#)</i></small>
+                    <input  name="NISN" type="tel" class="form-control" id="inputNomorNisn" pattern="[#,0-9]{11}" placeholder="#001076XXXX">
+                    <small><i> Ada pada ijazah, apabila belum ada cukup dikosongkan</i></small>
+                    <div class="invalid-feedback">
+                        Terdapat 10 angka dan mohon diawali tanda pagar (#)
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <label for="inputTempatLahir" class="form-label">Tempat Lahir</label><small class="text-danger">*</small>
@@ -91,7 +99,8 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputJenisKelamin" class="form-label">Jenis Kelamin</label><small class="text-danger">*</small>
-                    <select name="Jenis Kelamin" id="inputJenisKelamin" class="form-select" required>
+                    <select name="Jenis Kelamin" id="inputJenisKelamin" class="form-select" required>  
+                      <option selected disabled></option>
                       <option>Laki-laki</option>
                       <option>Perempuan</option>
                     </select>
@@ -99,6 +108,7 @@
                 <div class="col-md-4">
                     <label for="inputIjazahTerakhir" class="form-label">Ijazah Terakhir</label><small class="text-danger">*</small>
                     <select name="Ijazah Terakhir" id="inputIjazahTerakhir" class="form-select" required>
+                      <option selected disabled></option>
                       <option>SD Sederajat</option>
                       <option>SMP Sederajat</option>
                       <option>SMA Sederajat</option>
@@ -117,12 +127,12 @@
                         <option>Lainnya</option>
                     </select>
                 </div>
-                <!-- <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="inputCitacita" class="form-label">Cita-cita</label>
                     <select name="Cita-cita" id="inputCitacita" class="form-select">
                       <option>Agamawan</option>
                       <option>Ilmuawan</option>
-                      <option>Guru/Dosen</option>
+                      <option selected>Guru/Dosen</option>
                       <option>Pegawai Negeri Sipil</option>
                       <option>TNI/Polisi</option>
                       <option>Dokter</option>
@@ -131,15 +141,23 @@
                       <option>Seniman/Artis</option>
                       <option>Lainnya</option>
                     </select>
-                </div> -->
-                
+                </div>
+                <div class="col-md-8">
+                <label for="inputRiwayatPenyakit" class="form-label">Riwayat Penyakit</label>
+                    <input name="Riwayat Penyakit" type="text" class="form-control" id="inputRiwayatPenyakit" pattern="[A-Z a-z']{3,}" title="Mohon masukkan dengan tepat" required>
+                    <div class="invalid-feedback">
+                        Tuliskan Riwayat Penyakit yang sekiranya memerlukan perawatan khusus, bila tidak ada cukup diisi "Tidak ada"
+                    </div>
+                </div>
                 <hr class="my-4">
                 <h4>Biodata Orang Tua</h4>
                 <div class="row justify-content-around">
                     <div class="col-md-12">
                         <label for="inputNomorKK" class="form-label">Nomor KK</label><small class="text-danger">*</small>
                         <input name="Nomor KK" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorKK" required title="Mohon masukkan dengan tepat">
-                        <small><i> Terdapat pada KK bagian atas </i></small>
+                        <div class="invalid-feedback">
+                            Terdapat pada KK bagian atas
+                        </div>
                     </div>
                 <div class="col-lg-5 my-2">
                 <h5>Ayah</h5>
@@ -155,6 +173,7 @@
                         <div class="col-md-4">
                             <label for="inputIjazahTerakhirAyah" class="form-label">Ijazah Terakhir</label><small class="text-danger">*</small>
                             <select name="Ijazah Ayah" id="inputIjazahTerakhirAyah" class="form-select" required>
+                                <option selected disabled></option>
                                 <option>SD Sederajat</option>
                                 <option>SMP Sederajat</option>
                                 <option>SMA Sederajat</option>
@@ -165,8 +184,9 @@
                         <div class="col-md-4">
                             <label for="inputPekerjaanAyah" class="form-label">Pekerjaan</label><small class="text-danger">*</small>
                             <select name="Pekerjaan Ayah" id="inputPekerjaanAyah" class="form-select" required>
+                                <option selected disabled></option>
                                 <option>Guru/Dosen</option>
-                                <option selected>Petani/Peternak</option>
+                                <option>Petani/Peternak</option>
                                 <option>Buruh (Tani/Pabrik/Bangunan)</option>
                                 <option>Pedagang</option>
                                 <option>Wiraswasta</option>
@@ -200,6 +220,7 @@
                             <div class="col-md-4">
                                 <label for="inputIjazahTerakhirIbu" class="form-label">Ijazah Terakhir</label><small class="text-danger">*</small>
                                 <select name="Ijazah Ibu" id="inputIjazahTerakhirIbu" class="form-select" required>
+                                    <option selected disabled></option>
                                     <option>SD Sederajat</option>
                                     <option>SMP Sederajat</option>
                                     <option>SMA Sederajat</option>
@@ -210,8 +231,9 @@
                             <div class="col-md-4">
                                 <label for="inputPekerjaanIbu" class="form-label">Pekerjaan</label><small class="text-danger">*</small>
                                 <select name="Pekerjaan Ibu" id="inputPekerjaanIbu" class="form-select" required>
+                                    <option selected disabled></option>
                                     <option>Guru/Dosen</option>
-                                    <option selected>Petani/Peternak</option>
+                                    <option>Petani/Peternak</option>
                                     <option>Buruh (Tani/Pabrik/Bangunan)</option>
                                     <option>Pedagang</option>
                                     <option>Wiraswasta</option>
@@ -237,10 +259,11 @@
                     <div class="col-md-6">
                         <label for="inputPenghasilan" class="form-label">Penghasilan Orang Tua</label><small class="text-danger">*</small>
                         <select name="Penghasilan Orang Tua" id="inputPenghasilan" class="form-select" required>
+                            <option selected disabled></option>
                             <option>Kurang dari Rp 500.000</option>
                             <option>Rp 500.000 - Rp 1.000.000</option>
                             <option>Rp 1.000.000 - Rp 2.000.000</option>
-                            <option selected>Rp 2.000.000 - Rp 3.000.000</option>
+                            <option>Rp 2.000.000 - Rp 3.000.000</option>
                             <option>Rp 3.000.000 - Rp 4.000.000</option>
                             <option>Rp 4.000.000 - Rp 5.000.000</option>
                             <option>Lebih dari Rp 5.000.000</option>
@@ -250,6 +273,9 @@
                     <div class="col-md-6">
                         <label for="inputNomorTelepon" class="form-label">Nomor Telepon/WhatsApp</label><small class="text-danger">*</small>
                         <input name="Nomor Telepon" type="tel" class="form-control" id="inputNomorTelepon" placeholder="08532622XXXX" pattern="[0-9]{10,13}" required title="Mohon masukkan dengan tepat">
+                        <div class="invalid-feedback">
+                            Mohon tuliskan nomor yang nantinya digunakan untuk komunikasi, pemberitahuan pembayaran, saldo tabungan dll.
+                        </div>
                     </div>
                 </div>
 
@@ -289,6 +315,7 @@
                 <div class="col-md-4">
                     <label for="inputProvinsi" class="form-label">Provinsi</label><small class="text-danger">*</small>
                     <select name="Provinsi" id="inputProvinsi" class="form-select" required>
+                        <option selected disabled></option>
                         <option>Bali</option>
                         <option>Banten</option>
                         <option>Bengkulu</option>
@@ -297,7 +324,7 @@
                         <option>Gorontalo</option>
                         <option>Jambi</option>
                         <option>Jawa Barat</option>
-                        <option selected>Jawa Tengah</option>
+                        <option>Jawa Tengah</option>
                         <option>Jawa Timur</option>
                         <option>Kalimantan Barat</option>
                         <option>Kalimantan Selatan</option>
@@ -331,6 +358,7 @@
                 <div class="col-md-12">
                     <label for="inputPernyataanSekolah" class="form-label">Bagaimana Pendaftaran sekolah formal anda?</label><small class="text-danger">*</small>
                     <select name="Pernyataan Sekolah" id="inputPernyataanSekolah" class="form-select" required>
+                        <option selected disabled></option>
                         <option>Minta Bantuan Panitia PSB (Pengurus Pondok)</option>
                         <option>Daftar Mandiri ke sekolah</option>
                         <option>Saya murid pindahan, bukan siswa baru</option>
@@ -340,7 +368,7 @@
                 <div class="col-md-4">
                     <label for="inputSekolah" class="form-label">Di mana anda akan melanjutkan sekolah?</label>
                     <select name="Sekolah" id="inputSekolah" class="form-select">
-                        <option></option>
+                        <option selected disabled></option>
                         <option>MTS El-Bayan Majenang</option>
                         <option>MA El-Bayan Majenang</option>
                         <option>STMIK Komputama Majenang</option>
@@ -377,8 +405,11 @@
                     <input name="Nomor KIP" type="text" class="form-control" id="inputKip" placeholder="TO58CM">
                     <small><i>Silakan diisi jika anda memiliki</i> </small>                  
                 </div>
-                <small class="text-center ngisor ">Untuk administrasi bisa dilakukan ketika berangkat ke pesantren atau transfer bank (silakan download brosur untuk informasi lebih lengkap)</small>
-                <small class="text-center ">Dengan mengklik <b>Daftar</b>. Anda menyetujui untuk menjadi Santri PP El-Bayan serta menaati Dawuhan Pengasuh dan Qonun Pondok Pesantren</small>
+                <p class="ngisor "><b>Catatan:</b></p>
+                <p class="ngisor ">- Untuk administrasi bisa dilakukan ketika berangkat ke pesantren atau transfer bank (silakan download brosur untuk informasi lebih lengkap)</p>
+                <p class="ngisor ">- Pastikan semua kolom pertanyaan di atas, sudah <b>Berwarna Hijau</b> sebelum klik Daftar</p>
+                <br><br>
+                <small class="text-center">Dengan mengklik <b>Daftar</b>. Anda menyetujui untuk menjadi Santri PP El-Bayan serta menaati Dawuhan Pengasuh dan Qonun Pondok Pesantren</small>
 
 
                 <!-- Membuat Allert / Muncul semacam peringatan -->
@@ -413,14 +444,23 @@
         </div>
         
     <script>
+        window.onscroll = function() {myFunction()};
+        function myFunction(){
+            if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+            console.log("jadi kok!")
+            };
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxiTc9D76I1iIv2a6zr7EG1g8mEhUU0-ELdqKV-Jr1AjaWttQQXFrPA6V4smC5OXRLp9Q/exec'
         const form = document.forms['psbOnline']
         const btnLoading = document.querySelector('.btn-loading')
         const btnKirim = document.querySelector('.btn-kirim')
         const btnKirimLagi = document.querySelector('.btn-kirim')
         const alertSukses = document.querySelector('.alert-sukses')
-      
-        form.addEventListener('submit', e => {
+
+                form.addEventListener('submit', e => {
             btnLoading.classList.toggle('d-none');
             btnKirim.classList.toggle('d-none');
             e.preventDefault()

@@ -4,15 +4,22 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+t>
     <!-- My CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@125,300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
     <link rel="shortcut icon" href="favicon.ico">
+
     <title>PSB PP El-Bayan</title>
+
     <style>
         :root {
         --blue: #0071FF;
@@ -27,7 +34,9 @@
         padding: 30px;
         border-radius: 30px;
       }
-
+        .invalid-feedback{
+            display: flex;
+        }
         body {
             display: flex;
             justify-content: center;
@@ -77,37 +86,33 @@
             <form class="row g-2 needs-validation" name="psbOnline" id="psbOnline" novalidate>
                 <div class="col-12">
                     <label for="inputNama" class="form-label">Nama Lengkap</label><small class="text-danger">* <i>(kolom wajib diisi)</i></small>
-                    <input name="Nama" type="text" class="form-control" id="inputNama" pattern="[A-Z a-z']{3,}" title="Mohon masukkan dengan tepat" required>
-                    <div class="invalid-feedback">
-                        Mohon masukkan nama lengkap!
-                    </div>
+                    <input name="Nama" type="text" class="form-control" id="inputNama" pattern="[A-Z a-z']{3,}" required>
+                    <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-md-6">
                     <label for="inputNomorNik" class="form-label" >Nomor Induk Kependudukan (NIK)</label><small class="text-danger">*</small>
-                    <input name="NIK" type="tel" class="form-control" id="inputNomorNik" pattern="[0-9]{16}" required title="Mohon masukkan dengan tepat">
-                    <div class="invalid-feedback">
-                        NIK dapat dilihat pada Kartu Keluarga atau KTP, berjumlah 16 angka
-                    </div>
+                    <input name="NIK" type="tel" class="form-control" id="inputNomorNik" pattern="[0-9]{16}" required>
+                    <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-md-6">
                     <label for="inputNomorNisn" class="form-label">Nomor Induk Siswa Nasional (NISN)</label>
-                    <input  name="NISN" type="tel" class="form-control" id="inputNomorNisn" pattern="[#,0-9]{11}" placeholder="#001076XXXX">
+                    <input  name="NISN" type="tel" class="form-control" id="inputNomorNisn" placeholder="#001076XXXX">
                     <small><i> Ada pada ijazah, apabila belum ada cukup dikosongkan</i></small>
-                    <div class="invalid-feedback">
-                        Terdapat 10 angka dan mohon diawali tanda pagar (#)
-                    </div>
+                    <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-md-8">
                     <label for="inputTempatLahir" class="form-label">Tempat Lahir</label><small class="text-danger">*</small>
-                    <input name="Tempat" type="text" class="form-control" id="inputTempatLahir" pattern="[A-Z a-z]{3,}" required title="Mohon masukkan dengan tepat">
+                    <input name="Tempat" type="text" class="form-control" id="inputTempatLahir" pattern="[A-Z a-z]{3,}" required>
+                    <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-md-4">
                   <label for="inputTanggalLahir" class="form-label">Tanggal Lahir</label><small class="text-danger">*</small>
-                  <input name="Tanggal Lahir" type="date" class="form-control" id="inputTanggalLahir" required title="Mohon masukkan dengan tepat">
+                  <input name="TanggalLahir" type="date" class="form-control" id="inputTanggalLahir" required>
+                  <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-md-4">
                     <label for="inputJenisKelamin" class="form-label">Jenis Kelamin</label><small class="text-danger">*</small>
-                    <select name="Jenis Kelamin" id="inputJenisKelamin" class="form-select" required>  
+                    <select name="JenisKelamin" id="inputJenisKelamin" class="form-select" required>  
                       <option selected disabled></option>
                       <option>Laki-laki</option>
                       <option>Perempuan</option>
@@ -115,7 +120,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputIjazahTerakhir" class="form-label">Ijazah Terakhir</label><small class="text-danger">*</small>
-                    <select name="Ijazah Terakhir" id="inputIjazahTerakhir" class="form-select" required>
+                    <select name="IjazahTerakhir" id="inputIjazahTerakhir" class="form-select" required>
                       <option selected disabled></option>
                       <option>SD Sederajat</option>
                       <option>SMP Sederajat</option>
@@ -164,9 +169,7 @@
                     <option>Tuberkulosis</option>
                     <option selected>Tidak ada</option>
                 </select>
-                    <div class="invalid-feedback">
-                        Pilih Riwayat Penyakit yang sekiranya memerlukan perawatan khusus, bila tidak ada cukup diisi "Tidak ada"
-                    </div>
+                <!-- <small><i>Pilih Riwayat Penyakit yang sekiranya memerlukan perawatan khusus, bila tidak ada cukup diisi "Tidak ada"</i></small> -->
                 </div>
                 <div class="col-md-4">
                 <label for="inputUkuranAlmamater" class="form-label">Ukuran Jaz Almamater</label>
@@ -185,39 +188,37 @@
                 <div class="row justify-content-around">
                         <div class="col-md-12">
                             <label for="inputNomorKK" class="form-label">Nomor KK</label><small class="text-danger">*</small>
-                            <input name="Nomor KK" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorKK" required title="Mohon masukkan dengan tepat">
-                            <div class="invalid-feedback">
-                                Terdapat pada KK bagian atas
-                            </div>
+                            <input name="NomorKK" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorKK" required>
+                            <small><i>Terdapat pada KK bagian atas</i></small>
+                            <div class="invalid-feedback"></div>
                         </div>
                     <div class="col-lg-5 my-2">
                     <h5>Ayah</h5>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="inputNamaAyah" class="form-label">Nama</label><small class="text-danger">*</small>
-                                <input name="Nama Ayah" type="text" class="form-control" id="inputNamaAyah" pattern="[A-Z a-z']{3,}" required title="Mohon masukkan dengan tepat">
+                                <input name="NamaAyah" type="text" class="form-control" id="inputNamaAyah" pattern="[A-Z a-z']{3,}" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputNomorNikAyah" class="form-label">NIK</label><small class="text-danger">*</small>
-                                <input name="NIK Ayah" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorNikAyah" required title="Mohon masukkan dengan tepat">
+                                <input name="NIKAyah" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorNikAyah" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputIjazahTerakhirAyah" class="form-label">Ijazah Terakhir</label><small class="text-danger">*</small>
-                                <select name="Ijazah Ayah" id="inputIjazahTerakhirAyah" class="form-select" required>
-                                    <option selected disabled></option>
+                                <select name="IjazahAyah" id="inputIjazahTerakhirAyah" class="form-select" required>
+                                    <!-- <option selected disabled></option> -->
                                     <option>SD Sederajat</option>
                                     <option>SMP Sederajat</option>
-                                    <option>SMA Sederajat</option>
+                                    <option selected>SMA Sederajat</option>
                                     <option>Perguruan Tinggi</option>
                                     <option>Tidak sekolah/tidak lulus</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputPekerjaanAyah" class="form-label">Pekerjaan</label><small class="text-danger">*</small>
-                                <select name="Pekerjaan Ayah" id="inputPekerjaanAyah" class="form-select" required>
-                                    <option selected disabled></option>
+                                <select name="PekerjaanAyah" id="inputPekerjaanAyah" class="form-select" required>
                                     <option>Guru/Dosen</option>
-                                    <option>Petani/Peternak</option>
+                                    <option selected>Petani/Peternak</option>
                                     <option>Buruh (Tani/Pabrik/Bangunan)</option>
                                     <option>Pedagang</option>
                                     <option>Wiraswasta</option>
@@ -236,13 +237,12 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPenghasilan" class="form-label">Penghasilan Ayah</label><small class="text-danger">*</small>
-                                <select name="Penghasilan Ayah" id="inputPenghasilan" class="form-select" required>
-                                    <option selected disabled></option>
+                                <label for="inputPenghasilanAyah" class="form-label">Penghasilan Ayah</label><small class="text-danger">*</small>
+                                <select name="PenghasilanAyah" id="inputPenghasilanAyah" class="form-select" required>
                                     <option>Kurang dari Rp 500.000</option>
                                     <option>Rp 500.000 - Rp 1.000.000</option>
                                     <option>Rp 1.000.000 - Rp 2.000.000</option>
-                                    <option>Rp 2.000.000 - Rp 3.000.000</option>
+                                    <option selected>Rp 2.000.000 - Rp 3.000.000</option>
                                     <option>Rp 3.000.000 - Rp 4.000.000</option>
                                     <option>Rp 4.000.000 - Rp 5.000.000</option>
                                     <option>Lebih dari Rp 5.000.000</option>
@@ -250,8 +250,8 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputNomorTelepon Ayah" class="form-label">Nomor WhatsApp Ayah</label><small class="text-danger">*</small>
-                                <input name="Nomor Telepon Ayah" type="tel" class="form-control" id="inputNomorTelepon Ayah" placeholder="08532622XXXX" pattern="[0-9]{10,13}" required title="Mohon masukkan dengan tepat">
+                                <label for="inputNomorTeleponAyah" class="form-label">Nomor WhatsApp Ayah</label><small class="text-danger">*</small>
+                                <input name="NomorTeleponAyah" type="tel" class="form-control" id="inputNomorTeleponAyah" placeholder="08532622XXXX" pattern="[0-9]{10,13}" required>
                                 <!-- <div class="invalid-feedback">
                                     Mohon tuliskan nomor yang nantinya digunakan untuk komunikasi, pemberitahuan pembayaran, saldo tabungan dll.
                                 </div> -->
@@ -263,29 +263,29 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="inputNamaIbu" class="form-label">Nama</label><small class="text-danger">*</small>
-                                <input name="Nama Ibu" type="text" class="form-control" id="inputNamaIbu" pattern="[A-Z a-z']{3,}" required title="Mohon masukkan dengan tepat">
+                                <input name="NamaIbu" type="text" class="form-control" id="inputNamaIbu" pattern="[A-Z a-z']{3,}" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputNomorNikIbu" class="form-label">NIK</label><small class="text-danger">*</small>
-                                <input name="NIK Ibu" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorNikIbu" required title="Mohon masukkan dengan tepat">
+                                <input name="NIKIbu" type="tel" pattern="[0-9]{16}" class="form-control" id="inputNomorNikIbu" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputIjazahTerakhirIbu" class="form-label">Ijazah Terakhir</label><small class="text-danger">*</small>
-                                <select name="Ijazah Ibu" id="inputIjazahTerakhirIbu" class="form-select" required>
-                                    <option selected disabled></option>
+                                <select name="IjazahIbu" id="inputIjazahTerakhirIbu" class="form-select" required>
+                                    <!-- <option selected disabled></option> -->
                                     <option>SD Sederajat</option>
                                     <option>SMP Sederajat</option>
-                                    <option>SMA Sederajat</option>
+                                    <option selected>SMA Sederajat</option>
                                     <option>Perguruan Tinggi</option>
                                     <option>Tidak sekolah/tidak lulus</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputPekerjaanIbu" class="form-label">Pekerjaan</label><small class="text-danger">*</small>
-                                <select name="Pekerjaan Ibu" id="inputPekerjaanIbu" class="form-select" required>
-                                    <option selected disabled></option>
+                                <select name="PekerjaanIbu" id="inputPekerjaanIbu" class="form-select" required>
+                                    <!-- <option selected disabled></option> -->
                                     <option>Guru/Dosen</option>
-                                    <option>Petani/Peternak</option>
+                                    <option selected>Petani/Peternak</option>
                                     <option>Buruh (Tani/Pabrik/Bangunan)</option>
                                     <option>Pedagang</option>
                                     <option>Wiraswasta</option>
@@ -304,12 +304,12 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPenghasilan" class="form-label">Penghasilan Ibu</label><small class="text-danger">*</small>
-                                <select name="Penghasilan Ibu" id="inputPenghasilan" class="form-select" required>
-                                    <option selected disabled></option>
+                                <label for="inputPenghasilanIbu" class="form-label">Penghasilan Ibu</label><small class="text-danger">*</small>
+                                <select name="PenghasilanIbu" id="inputPenghasilanIbu" class="form-select" required>
+                                    <!-- <option selected disabled></option> -->
                                     <option>Kurang dari Rp 500.000</option>
                                     <option>Rp 500.000 - Rp 1.000.000</option>
-                                    <option>Rp 1.000.000 - Rp 2.000.000</option>
+                                    <option selected>Rp 1.000.000 - Rp 2.000.000</option>
                                     <option>Rp 2.000.000 - Rp 3.000.000</option>
                                     <option>Rp 3.000.000 - Rp 4.000.000</option>
                                     <option>Rp 4.000.000 - Rp 5.000.000</option>
@@ -318,10 +318,10 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputNomorTeleponIbu" class="form-label">Nomor WhatsApp Ibu</label><small class="text-danger">*</small> <br>
-                                <input name="Nomor Telepon Ibu" type="tel" class="form-control" id="inputNomorTeleponIbu" placeholder="08532622XXXX" pattern="[0-9]{10,13}" required title="Mohon masukkan dengan tepat">
+                                <label for="inputNomorTeleponIbu" class="form-label">Nomor WhatsApp Ibu</label><br>
                                 <input type="checkbox" class="form-check-input" id="cekNomorIbu" name="cekNomorIbu" onclick="noIbu()">
-                                <label for="cekNomorIbu"> <small>sama seperti Ayah</small></label><br>
+                                <label for="cekNomorIbu"> <small><i>Sama seperti Ayah</i> </small></label>
+                                <input name="NomorTeleponIbu" type="tel" class="form-control" id="inputNomorTeleponIbu" placeholder="08532622XXXX" pattern="[0-9]{10,13}"><br>
                             </div>
                         </div>
                     </div>
@@ -338,12 +338,12 @@
                     <div class="dataWaliForm col-lg-12 my-2" id="waliForm">      
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label for="inputNamaWali" class="form-label">Nama</label><small class="text-danger">*</small>
-                                <input name="Nama Wali" type="text" class="form-control" id="inputNamaWali" pattern="[A-Z a-z']{3,}" required title="Mohon masukkan dengan tepat">
+                                <label for="inputNamaWali" class="form-label">Nama</label>
+                                <input name="NamaWali" type="text" class="form-control" id="inputNamaWali" pattern="[A-Z a-z']{3,}">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputHubungan" class="form-label">Hubungan</label><small class="text-danger">*</small>
-                                <select name="Hubungan Wali" id="inputHubungan" class="form-select" required>
+                                <label for="inputHubungan" class="form-label">Hubungan</label>
+                                <select name="HubunganWali" id="inputHubungan" class="form-select">
                                     <option selected disabled></option>
                                     <option>Ayah/Ibu Angkat</option>
                                     <option>Kakek/Nenek</option>
@@ -354,8 +354,8 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPekerjaanWali" class="form-label">Pekerjaan</label><small class="text-danger">*</small>
-                                <select name="Pekerjaan Wali" id="inputPekerjaanWali" class="form-select" required>
+                                <label for="inputPekerjaanWali" class="form-label">Pekerjaan</label>
+                                <select name="PekerjaanWali" id="inputPekerjaanWali" class="form-select">
                                     <option selected disabled></option>
                                     <option>Guru/Dosen</option>
                                     <option>Petani/Peternak</option>
@@ -377,15 +377,15 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="inputNomorTelepon Wali" class="form-label">Nomor WhatsApp Wali</label><small class="text-danger">*</small>
-                                <input name="Nomor Telepon Wali" type="tel" class="form-control" id="inputNomorTelepon Wali" placeholder="08532622XXXX" pattern="[0-9]{10,13}" required title="Mohon masukkan dengan tepat">
+                                <label for="inputNomorTelepon Wali" class="form-label">Nomor WhatsApp Wali</label>
+                                <input name="NomorTeleponWali" type="tel" class="form-control" id="inputNomorTelepon Wali" placeholder="08532622XXXX" pattern="[0-9]{10,13}">
                                 <!-- <div class="invalid-feedback">
                                     Mohon tuliskan nomor yang nantinya digunakan untuk komunikasi, pemberitahuan pembayaran, saldo tabungan dll.
                                 </div> -->
                             </div>
                             <div class="col-md-12">
-                                <label for="inputAlamatWali" class="form-label">Alamat Wali</label><small class="text-danger">*</small>
-                                <input name="Alamat Wali" type="text" class="form-control" placeholder="Tulis alamat lengkap" id="inputAlamatWali" pattern="[A-Z a-z' 0-9]{7,}" required title="Alamat lengkap meliputi desa, kecamata, dan kabupaten">
+                                <label for="inputAlamatWali" class="form-label">Alamat Wali</label>
+                                <input name="AlamatWali" type="text" class="form-control" placeholder="Tulis alamat lengkap" id="inputAlamatWali" pattern="[A-Z a-z' 0-9]{7,}" title="Alamat lengkap meliputi desa, kecamata, dan kabupaten">
                             </div>
                         </div>
                     </div>                    
@@ -400,17 +400,17 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputDesa" class="form-label">Desa</label><small class="text-danger">*</small>
-                    <input name="Desa" type="text" class="form-control" id="inputDesa" pattern="[A-Z a-z]{3,}" required title="Mohon masukkan dengan tepat">
+                    <input name="Desa" type="text" class="form-control" id="inputDesa" pattern="[A-Z a-z]{3,}" required>
                 </div>
                 <div class="col-md-4">
                     <div class="row g-3">
                         <div class="col-6">
                             <label for="inputRt" class="form-label">RT</label><small class="text-danger">*</small>
-                            <input name="RT" type="tel" class="form-control" id="inputRt" required title="Mohon masukkan dengan tepat">
+                            <input name="RT" type="tel" class="form-control" id="inputRt" required>
                         </div>
                         <div class="col-6">
                             <label for="inputRw" class="form-label">RW</label><small class="text-danger">*</small>
-                            <input name="RW" type="tel" class="form-control" id="inputRw" required title="Mohon masukkan dengan tepat">
+                            <input name="RW" type="tel" class="form-control" id="inputRw" required>
                         </div>
 
                     </div>
@@ -419,16 +419,16 @@
                 
                 <div class="col-md-4">
                     <label for="inputKecamatan" class="form-label">Kecamatan</label><small class="text-danger">*</small>
-                    <input name="Kecamatan" type="text" class="form-control" id="inputKecamatan" pattern="[A-Z a-z]{3,}" required title="Mohon masukkan dengan tepat">
+                    <input name="Kecamatan" type="text" class="form-control" id="inputKecamatan" pattern="[A-Z a-z]{3,}" required>
                 </div>
                 <div class="col-md-4">
                     <label for="inputKabupaten" class="form-label">Kabupaten</label><small class="text-danger">*</small>
-                    <input name="Kabupaten" type="text" class="form-control" id="inputKabupaten" pattern="[A-Z a-z]{3,}" required title="Mohon masukkan dengan tepat">
+                    <input name="Kabupaten" type="text" class="form-control" id="inputKabupaten" pattern="[A-Z a-z]{3,}" required>
                 </div>
                 <div class="col-md-4">
                     <label for="inputProvinsi" class="form-label">Provinsi</label><small class="text-danger">*</small>
                     <select name="Provinsi" id="inputProvinsi" class="form-select" required>
-                        <option selected disabled></option>
+                        <!-- <option selected disabled></option> -->
                         <option>Bali</option>
                         <option>Banten</option>
                         <option>Bengkulu</option>
@@ -437,7 +437,7 @@
                         <option>Gorontalo</option>
                         <option>Jambi</option>
                         <option>Jawa Barat</option>
-                        <option>Jawa Tengah</option>
+                        <option selected>Jawa Tengah</option>
                         <option>Jawa Timur</option>
                         <option>Kalimantan Barat</option>
                         <option>Kalimantan Selatan</option>
@@ -470,7 +470,7 @@
                 <h4>Data Sekolah Formal</h4>
                 <div class="col-md-12">
                     <label for="inputPernyataanSekolah" class="form-label">Apakah anda sudah mendaftar sekolah formal?</label><small class="text-danger">*</small>
-                    <select name="Pernyataan Sekolah" id="inputPernyataanSekolah" class="form-select" required>
+                    <select name="PernyataanSekolah" id="inputPernyataanSekolah" class="form-select" required>
                         <option selected disabled></option>
                         <option>Sudah</option>
                         <option>Belum</option>
@@ -490,27 +490,27 @@
   
                 <div class="col-md-4">
                     <label for="inputNamaSekolahAsal" class="form-label">Nama Sekolah Asal</label>
-                    <input name="Sekolah Asal" type="text" class="form-control" id="inputNamaSekolahAsal" pattern="[A-Z a-z 0-9 ']{3,}">
+                    <input name="SekolahAsal" type="text" class="form-control" id="inputNamaSekolahAsal" pattern="[A-Z a-z 0-9 ']{3,}">
                 </div>
                 <div class="col-md-4">
                     <label for="inputKip" class="form-label">Nomor KIP (Kartu Indonesia Pintar)</label>
-                    <input name="Nomor KIP" type="text" class="form-control" id="inputKip" placeholder="TO58CM">
+                    <input name="NomorKIP" type="text" class="form-control" id="inputKip" placeholder="TO58CM">
                     <small><i>Silakan diisi jika anda memiliki</i> </small>                  
                 </div>
                 <p class="ngisor "><b>Catatan:</b></p>
                 <p class="ngisor ">- Bagi yang belum mendaftar sekolah formal, akan didaftarkan oleh Panitia PSB (tidak perlu mengisi formulir MTs/MA)</p>
                 <p class="ngisor ">- Administrasi dapat dilakukan ketika berangkat ke pesantren atau transfer bank (silakan download brosur untuk informasi lebih lengkap)</p>
-                <p class="ngisor ">- Agar formulir terkirim, pastikan semua kolom pertanyaan di atas, sudah <b>Berwarna Hijau</b> sebelum klik Daftar</p>
+                <!-- <p class="ngisor ">- Agar formulir terkirim, pastikan semua kolom pertanyaan di atas, sudah <b>Berwarna Hijau</b> sebelum klik Daftar</p> -->
                 <p class="ngisor ">- Pengiriman berkas dilakukan setelah berhasil mengisi Formulir</p>
                 <br><br>
-                <small class="text-center">Dengan mendaftar, Anda menyetujui untuk menjadi Santri PP El-Bayan serta menaati Dawuhan Pengasuh dan Qonun Pondok Pesantren</small>
+                <small class="text-center" id="pesanDaftar">Dengan mendaftar, Anda menyetujui untuk menjadi Santri PP El-Bayan serta menaati Dawuhan Pengasuh dan Qonun Pondok Pesantren</small>
 
 
                 <!-- Membuat Allert / Muncul semacam peringatan -->
                 <div class="alert alert-danger d-flex align-items-center d-none alert-gagal" role="alert">
                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                     <div>
-                      Maaf terdapat kolom yang kosong, silakan lengkapi lalu klik DAFTAR
+                      Maaf terdapat kolom yang belum sesuai, silakan lengkapi lalu klik DAFTAR
                     </div>
                 </div>
                 <div class="alert alert-success d-flex align-items-center d-none alert-sukses" role="alert">
@@ -520,11 +520,11 @@
                         <a href="https://chat.whatsapp.com/IrzmjojRFHmJOQ5SUaaW8R">GRUP PUTRA</a><hr>
                         <a href="https://chat.whatsapp.com/EvOONsuuNCF5G7ZhcfOwgi">GRUP PUTRI</a> -->
                     </div>
-                  </div>
+                </div>
                   
                 <div class="col-12 mt-3 text-center">
-                 
-                  <button type="submit" class="btn btn-outline-primary btn-kirim"><strong>Kirim Data</strong></button>
+                <p class="fs-10 fst-italic text-danger d-none" id="pesanErr">Maaf terdapat kolom yang belum sesuai, perbaiki terlebih dahulu</p>
+                  <button type="submit" class="btn btn-outline-primary btn-kirim" id="btnKirimData" disabled><strong>Kirim Data</strong></button>
                   <button type="submit" class="btn btn-outline-primary btn-kirim-lagi d-none"><strong>DAFTAR LAGI</strong></button>
                   <button class="btn btn-primary btn-loading d-none" type="button" disabled>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -535,20 +535,219 @@
             </div>
             
             <div class="bawah mt-3 text-center">
-                <small>Pondok Pesantren El-Bayan &copy; 2023</small>
+                <small>Pondok Pesantren El-Bayan &copy; 2025</small>
             </div>
         </div>
         
     <script>
-        window.onscroll = function() {myFunction()};
-        function myFunction(){
-            if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
+        $(document).ready(function() {
+            $.validator.addMethod("aturanNama", function(value){
+                return /^[a-zA-Z' ]*$/.test(value);
+            }, "Masukkan nama yang benar, hanya huruf dan spasi");
+
+            $.validator.addMethod("aturanNIK", function(value){
+                return /^[0-9]*$/.test(value);
+            }, "Hanya berisi angka");
+
+            $.validator.addMethod("aturanNomor", function(value){
+                return /^[0-9]*$/.test(value);
+            }, "Hanya berisi angka");
+
+            $.validator.addMethod("aturanNISN", function(value){
+                return /^#[0-9]{10}$/.test(value);
+            }, "Diawali tanda pagar (#) dan berjumlah 10 angka");
+
+            $.validator.addMethod("aturanAlamat", function(value){
+                return /^[A-Z a-z]{3,}$/.test(value);
+            }, "Alamat hanya berisi huruf dan spasi");
+
+            $("#psbOnline").validate({
+                rules: {
+                    Nama: {
+                        required: true,
+                        minlength: 3,
+                        aturanNama: true
+                    },
+                    NIK:{
+                        required: true,
+                        rangelength: [16,16],
+                        aturanNIK: true
+                    },
+                    NISN:{
+                        // aturanNISN:true,
+                        required:false,
+                        
+                    },
+                    Tempat:{
+                        required: true,
+                        aturanAlamat: true
+                    },
+                    TanggalLahir:{
+                        required: true,
+                    },
+                    JenisKelamin:{
+                        required: true
+                    },
+                    IjazahTerakhir:{
+                        required: true
+                    },
+                    Hobi:{
+                        required: true
+                    },
+                    NomorKK:{
+                        required: true,
+                        rangelength: [16,16],
+                        aturanNIK: true
+                    },
+                    NamaAyah: {
+                        required: true,
+                        minlength: 3,
+                        aturanNama: true
+                    },
+                    NIKAyah:{
+                        required: true,
+                        rangelength: [16,16],
+                        aturanNIK: true
+                    },
+                    NomorTeleponAyah:{
+                        required:true,
+                        aturanNomor: true,
+                        minlength:10,
+                        maxlength:13,
+                    },
+                    NamaIbu: {
+                        required: true,
+                        minlength: 3,
+                        aturanNama: true
+                    },
+                    NIKIbu:{
+                        required: true,
+                        rangelength: [16,16],
+                        aturanNIK: true
+                    },
+                    Desa:{
+                        required:true,
+                    },
+                    RT:{
+                        required:true,
+                    },
+                    RW:{
+                        required:true,
+                    },
+                    Kecamatan:{
+                        required:true,
+                    },
+                    Kabupaten:{
+                        required:true,
+                    },
+                    PernyataanSekolah:{
+                        required:true,
                     }
-                    form.classList.add('was-validated')
-            console.log("jadi kok!")
-        };
+                    
+                },
+                messages: {
+                    Nama: {
+                        required: "Nama wajib diisi",
+                        minlength:"Minimal 3 karakter"
+                    },
+                    NIK: {
+                        required: "NIK wajib diisi",
+                        rangelength:"NIK berjumlah 16 angka"
+                    },
+                    Tempat:{
+                        required: "Tempat lahir wajib diisi"
+                    },
+                    TanggalLahir:{
+                        required: "Tanggal lahir wajib diisi",
+                    },
+                    JenisKelamin:{
+                        required: "Kolom wajib diisi",
+                    },
+                    IjazahTerakhir:{
+                        required: "Ijazah terakhir wajib diisi",
+                    },
+                    Hobi:{
+                        required: "Hobi wajib diisi",
+                    },
+                    NomorKK:{                        
+                        required: "Nomor KK wajib diisi",
+                        rangelength:"Nomor KK berjumlah 16 angka"
+                    },
+                    NamaAyah: {
+                        required: "Nama wajib diisi",
+                        minlength:"Minimal 3 karakter"
+                    },
+                    NIKAyah: {
+                        required: "NIK wajib diisi",
+                        rangelength:"NIK berjumlah 16 angka"
+                    },
+                    NomorTeleponAyah:{
+                        required: "Isi nomor WhatsApp Ayah",
+                        minlength: "Minimal terdapat 10 angka",
+                        maxlength: "Angka yang dimasukkan terlalu banyak"
+                    },
+                    NamaIbu: {
+                        required: "Nama wajib diisi",
+                        minlength:"Minimal 3 karakter"
+                    },
+                    NIKIbu: {
+                        required: "NIK wajib diisi",
+                        rangelength:"NIK berjumlah 16 angka"
+                    },
+                    Desa:{
+                        required:"Kolom wajib diisi",
+                    },
+                    RT:{
+                        required:"",
+                    },
+                    RW:{
+                        required:"",
+                    },
+                    Kecamatan:{
+                        required:"Kolom wajib diisi",
+                    },
+                    Kabupaten:{
+                        required:"Kolom wajib diisi",
+                    },
+                    PernyataanSekolah:{
+                        required:"Kolom wajib diisi",
+                    }
+                },
+                errorElement: "div",
+                errorClass: "invalid-feedback",
+                highlight: function(element, errorClass) {
+                $(element).addClass(errorClass);
+                $(element).parent().addClass("was-validated");
+                },
+                unhighlight: function(element, errorClass) {
+                $(element).removeClass(errorClass);
+                $(element).parent().removeClass("is-invalid");
+                },
+                submitHandler: function(form) {
+                // Kode yang akan dijalankan jika validasi berhasil                
+                $("#btnKirimData").prop("disabled", false);
+                $("#btnKirimData").addClass("btn-outline-primary");
+                $("#btnKirimData").removeClass("btn-outline-secondary");                
+                form.submit();
+                },
+                invalidHandler: function(form, validator) {
+                    $("#pesanDaftar").addClass("d-none");
+                    $("#pesanErr").removeClass("d-none");
+                    $("#btnKirimData").prop("disabled", true);
+                    $("#btnKirimData").removeClass("btn-outline-primary");
+                    $("#btnKirimData").addClass("btn-outline-secondary");
+                }
+            });
+            $("#psbOnline input").on("change", function() {
+            if ($("#psbOnline").valid()) {
+                $("#btnKirimData").prop("disabled", false);
+                $("#btnKirimData").addClass("btn-outline-primary");
+                $("#btnKirimData").removeClass("btn-outline-secondary");
+                $("#pesanDaftar").removeClass("d-none");
+                $("#pesanErr").addClass("d-none");
+            }
+        });
+        });
 
         function noIbu(){
             const cekNI = document.getElementById('cekNomorIbu');
@@ -582,7 +781,7 @@
             form.addEventListener('submit', e => {
                 btnLoading.classList.toggle('d-none');
             // btnLoading.classList.toggle('d-none');
-                btnKirim.classList.toggle('d-none');
+                // btnKirim.classList.toggle('d-none');
             e.preventDefault()
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then((response) => {
@@ -613,12 +812,10 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
-    crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
     
   </body>
 </html>
